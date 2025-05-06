@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAN Scanner Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body class="p-4">
+  <div class="container">
+    <h1 class="mb-4">LAN Scanner</h1>
+
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <form id="scan-form">
+          <div class="input-group">
+            <input type="text" class="form-control" id="subnet-input" placeholder="Enter subnet (e.g., 192.168.1.0/24)">
+            <button class="btn btn-primary" type="submit">Scan Now</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <div class="text-end" id="device-count">
+          <span class="badge bg-primary">0 devices</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-light">
+        <h5 class="mb-0">Filters</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="filter-name" class="form-label">Filter by Name</label>
+              <input type="text" id="filter-name" class="form-control" placeholder="Enter device name">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="filter-subnet" class="form-label">Filter by Subnet</label>
+              <input type="text" id="filter-subnet" class="form-control" placeholder="Enter subnet">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-hover" id="devices-table">
+        <thead>
+          <tr>
+            <th><button class="sort-btn btn btn-sm btn-link" data-field="ip">IP</button></th>
+            <th><button class="sort-btn btn btn-sm btn-link" data-field="mac">MAC</button></th>
+            <th><button class="sort-btn btn btn-sm btn-link" data-field="name">Name</button></th>
+            <th><button class="sort-btn btn btn-sm btn-link" data-field="subnet">Subnet</button></th>
+            <th><button class="sort-btn btn btn-sm btn-link" data-field="first_seen">First Seen</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Device data will be populated here -->
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="text-muted mt-3">
+      <small>Last updated: <span id="last-updated">-</span></small>
+    </div>
+  </div>
+</body>
+</html>
