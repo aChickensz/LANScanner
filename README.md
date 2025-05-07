@@ -36,7 +36,7 @@ A lightweight, web-based network scanning tool that monitors devices on your loc
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/lan-scanner.git
+   git clone https://github.com/aChickensz/LANScanner.git
    cd lan-scanner
    ```
 
